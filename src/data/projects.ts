@@ -21,6 +21,7 @@ import SooBookImg from "../assets/images/SooBook.png";
 import RummikubWithChatImg from "../assets/images/RummikubWithChat.png";
 import LookUpTheSkyImg from "../assets/images/LookUpTheSky.png";
 import DaymondImg from "../assets/images/Daymond.png";
+import arokImg from "../assets/images/Arok.png";
 
 export const projects: Project[] = [
   {
@@ -204,10 +205,10 @@ export const projects: Project[] = [
     year: "2026",
     description: "AI 기반 자동 회의록 시스템",
     techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Zustand", "LiveKit"],
-    // image: arokImg,
+    image: arokImg,
     github: "https://github.com/nectarsoftAI/arok-frontend",
     teamSize: 4,
-    contributions: ["Frontend 100%"],
+    contributions: ["UI/UX 100%", "Frontend 100%"],
     role: [
       "Figma Make 기반 UI/UX 설계",
       "실시간 STT 녹음 화면 구현",
