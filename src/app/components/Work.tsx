@@ -118,34 +118,43 @@ export function Work() {
                     <div className="relative z-10 p-8">
                       {!isExpanded ? (
                         // Collapsed view
-                        <div className="min-h-[24rem] flex flex-col justify-between">
+                        <div className="min-h-[24rem] md:h-[24rem] flex flex-col justify-between overflow-hidden">
                           <div>
-                            {/* Thumbnail on hover */}
-                            {project.image && hoveredProject === project.id && (
+                            {/* Thumbnail pushes the text down on hover */}
+                            {project.image && (
                               <motion.div
-                                className="mb-4 rounded-xl overflow-hidden"
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
+                                className="rounded-xl overflow-hidden"
+                                initial={false}
+                                animate={{
+                                  height: hoveredProject === project.id ? 'auto' : 0,
+                                  opacity: hoveredProject === project.id ? 1 : 0,
+                                  marginBottom: hoveredProject === project.id ? 8 : 0,
+                                }}
                                 transition={{ duration: 0.3 }}
                               >
                                 <img
                                   src={project.image}
                                   alt={project.title}
-                                  className="w-full object-cover"
+                                  className="w-full aspect-video object-cover block"
                                   style={{
-                                    height: '140px',
-                                    objectFit: 'contain',
                                     background: 'rgba(0, 0, 0, 0.3)',
                                   }}
                                 />
                               </motion.div>
                             )}
 
-                            <div className="flex items-start justify-between mb-3">
-                              <h3 className="text-3xl font-['Playfair_Display']">
+                            <div className="flex items-start justify-between mb-2">
+                              <motion.h3
+                                className="font-['Playfair_Display']"
+                                initial={false}
+                                animate={{
+                                  fontSize:
+                                    hoveredProject === project.id ? '1.5rem' : '1.875rem',
+                                }}
+                                transition={{ duration: 0.3 }}
+                              >
                                 {project.title}
-                              </h3>
+                              </motion.h3>
                               {project.github && (
                                 <a
                                   href={project.github}
@@ -158,16 +167,35 @@ export function Work() {
                                 </a>
                               )}
                             </div>
-                            <p className="text-sm text-white/50 mb-2 font-['Inter']">
-                              {project.period}
-                            </p>
-                            <p className="text-white/70 font-['Inter'] mb-4">
+                            {/* Period collapses away on hover */}
+                            <motion.div
+                              className="overflow-hidden"
+                              initial={false}
+                              animate={{
+                                height: hoveredProject === project.id ? 0 : 'auto',
+                                opacity: hoveredProject === project.id ? 0 : 1,
+                              }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <p className="text-sm text-white/50 mb-2 font-['Inter']">
+                                {project.period}
+                              </p>
+                            </motion.div>
+                            <p className="text-white/70 text-sm font-['Inter']">
                               {project.description}
                             </p>
-
                           </div>
 
-                          <div>
+                          {/* Tech stack & team info collapse away on hover */}
+                          <motion.div
+                            className="overflow-hidden"
+                            initial={false}
+                            animate={{
+                              height: hoveredProject === project.id ? 0 : 'auto',
+                              opacity: hoveredProject === project.id ? 0 : 1,
+                            }}
+                            transition={{ duration: 0.3 }}
+                          >
                             <div className="flex flex-wrap gap-2 mb-4">
                               {project.techStack.map((tech) => (
                                 <span
@@ -210,7 +238,7 @@ export function Work() {
                                 />
                               </svg>
                             </motion.div>
-                          </div>
+                          </motion.div>
                         </div>
                       ) : (
                         // Expanded view
@@ -230,10 +258,8 @@ export function Work() {
                               <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-auto object-cover"
+                                className="w-full aspect-video object-cover block"
                                 style={{
-                                  maxHeight: '500px',
-                                  objectFit: 'contain',
                                   background: 'rgba(0, 0, 0, 0.2)',
                                 }}
                               />
