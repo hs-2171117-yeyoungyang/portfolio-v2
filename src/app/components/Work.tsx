@@ -1,7 +1,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import { projects } from '../../data/projects';
-import { ExternalLink, X } from 'lucide-react';
+import { Github, X } from 'lucide-react';
 import { ContributionBubble } from './ContributionBubble';
 
 export function Work() {
@@ -163,7 +163,7 @@ export function Work() {
                                   className="text-white/60 hover:text-white transition-colors"
                                   onClick={(e) => e.stopPropagation()}
                                 >
-                                  <ExternalLink size={20} />
+                                  <Github size={20} />
                                 </a>
                               )}
                             </div>
@@ -280,7 +280,7 @@ export function Work() {
                                   className="text-white/60 hover:text-white transition-colors"
                                   onClick={(e) => e.stopPropagation()}
                                 >
-                                  <ExternalLink size={24} />
+                                  <Github size={24} />
                                 </a>
                               )}
                             </div>
