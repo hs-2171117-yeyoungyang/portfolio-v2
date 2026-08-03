@@ -15,13 +15,13 @@ export interface Project {
   color: string;
 }
 
-import medeasyImg from "../assets/images/medeasy.png";
-import plogImg from "../assets/images/plog.png";
-import SooBookImg from "../assets/images/SooBook.png";
-import RummikubWithChatImg from "../assets/images/RummikubWithChat.png";
-import LookUpTheSkyImg from "../assets/images/LookUpTheSky.png";
-import DaymondImg from "../assets/images/Daymond.png";
-import arokImg from "../assets/images/Arok.png";
+import medeasyImg from "../assets/images/medeasy.webp";
+import plogImg from "../assets/images/plog.webp";
+import SooBookImg from "../assets/images/SooBook.webp";
+import RummikubWithChatImg from "../assets/images/RummikubWithChat.webp";
+import LookUpTheSkyImg from "../assets/images/LookUpTheSky.webp";
+import DaymondImg from "../assets/images/Daymond.webp";
+import arokImg from "../assets/images/Arok.webp";
 
 export const projects: Project[] = [
   {
